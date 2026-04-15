@@ -1,0 +1,72 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Stock Holding',
+    typeNamePlural: 'Stock Holdings',
+    title: { type: #STANDARD, label: 'Stock', value: 'TickerSymbol' }
+  }
+}
+annotate entity ZCIT_STK_C_22IT018 with
+{
+  @UI.facet: [
+    {
+      id: 'StockItemDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Stock Details',
+      position: 10
+    }
+  ]
+
+  @UI: { lineItem: [{position: 10, label: 'Portfolio ID'}],
+         identification: [{position: 10, label: 'Portfolio ID'}] }
+  PortfolioId;
+
+  @UI: { lineItem: [{position: 20, label: 'Item No'}],
+         identification: [{position: 20, label: 'Item No'}] }
+  StockItemNo;
+
+  @UI: { lineItem: [{position: 30, label: 'Ticker'}],
+         identification: [{position: 30, label: 'Ticker'}] }
+  TickerSymbol;
+
+  @UI: { lineItem: [{position: 40, label: 'Company'}],
+         identification: [{position: 40, label: 'Company'}] }
+  CompanyName;
+
+  @UI: { lineItem: [{position: 50, label: 'Exchange'}],
+         identification: [{position: 50, label: 'Exchange'}] }
+  Exchange;
+
+  @UI: { lineItem: [{position: 60, label: 'Sector'}],
+         identification: [{position: 60, label: 'Sector'}] }
+  Sector;
+
+  @UI: { lineItem: [{position: 70, label: 'Quantity'}],
+         identification: [{position: 70, label: 'Quantity'}] }
+  Quantity;
+
+  @UI.hidden: true
+  QuantityUnit;
+
+  @UI: { lineItem: [{position: 80, label: 'Buy Price'}],
+         identification: [{position: 80, label: 'Buy Price'}] }
+  BuyPrice;
+
+  @UI: { lineItem: [{position: 90, label: 'Current Price'}],
+         identification: [{position: 90, label: 'Current Price'}] }
+  CurrentPrice;
+
+  @UI: { lineItem: [{position: 100, label: 'Currency'}],
+         identification: [{position: 100, label: 'Currency'}] }
+  Currency;
+
+  @UI: { lineItem: [{position: 110, label: 'Purchase Date'}],
+         identification: [{position: 110, label: 'Purchase Date'}] }
+  PurchaseDate;
+
+  @UI.hidden: true LocalCreatedBy;
+  @UI.hidden: true LocalCreatedAt;
+  @UI.hidden: true LocalLastChangedBy;
+  @UI.hidden: true LocalLastChangedAt;
+}

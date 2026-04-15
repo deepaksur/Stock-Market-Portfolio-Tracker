@@ -1,0 +1,5 @@
+@EndUserText.label: 'Stock Portfolio Service Definition'
+define service ZCIT_PTF_UI_22IT018 {
+  expose ZCIT_PTF_C_22IT018;
+  expose ZCIT_STK_C_22IT018;
+}

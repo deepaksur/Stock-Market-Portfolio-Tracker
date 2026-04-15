@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Portfolio',
+    typeNamePlural: 'Portfolios',
+    title: { type: #STANDARD, label: 'Portfolio', value: 'PortfolioId' }
+  }
+}
+annotate entity ZCIT_PTF_C_22IT018 with
+{
+  @UI.facet: [
+    {
+      id: 'PortfolioHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Portfolio Details',
+      position: 10
+    },
+    {
+      id: 'StockItems',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Stock Holdings',
+      position: 20,
+      targetElement: '_stockitem'
+    }
+  ]
+
+  @UI: { lineItem: [{position: 10, label: 'Portfolio ID'}],
+         identification: [{position: 10, label: 'Portfolio ID'}],
+         selectionField: [{position: 10}] }
+  PortfolioId;
+
+  @UI: { lineItem: [{position: 20, label: 'Portfolio Name'}],
+         identification: [{position: 20, label: 'Portfolio Name'}],
+         selectionField: [{position: 20}] }
+  PortfolioName;
+
+  @UI: { lineItem: [{position: 30, label: 'Owner'}],
+         identification: [{position: 30, label: 'Owner'}],
+         selectionField: [{position: 30}] }
+  OwnerName;
+
+  @UI: { lineItem: [{position: 40, label: 'Currency'}],
+         identification: [{position: 40, label: 'Currency'}] }
+  BaseCurrency;
+
+  @UI: { lineItem: [{position: 50, label: 'Total Value'}],
+         identification: [{position: 50, label: 'Total Value'}] }
+  TotalValue;
+
+  @UI: { lineItem: [{position: 60, label: 'Created On'}],
+         identification: [{position: 60, label: 'Created On'}] }
+  CreatedOn;
+
+  @UI: { lineItem: [{position: 70, label: 'Risk Profile'}],
+         identification: [{position: 70, label: 'Risk Profile'}],
+         selectionField: [{position: 40}] }
+  RiskProfile;
+
+  @UI: { identification: [{position: 80, label: 'Created By'}] }
+  LocalCreatedBy;
+
+  @UI: { identification: [{position: 90, label: 'Created At'}] }
+  LocalCreatedAt;
+}

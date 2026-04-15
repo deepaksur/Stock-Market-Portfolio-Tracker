@@ -1,0 +1,78 @@
+unmanaged implementation in class zbp_ptf_i_22it018 unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZCIT_PTF_I_22IT018 alias PortfolioHdr
+  implementation in class zbp_ptf_h_22it018 unique
+  draft table zcit_ptf_hd_018
+  lock master total etag LocalLastChangedAt
+  authorization master ( instance )
+  etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+  draft action Activate optimized;
+  draft action Discard;
+
+  field ( mandatory : create ) PortfolioId;
+  field ( readonly : update ) PortfolioId;
+  field ( readonly ) LocalLastChangedAt;
+
+  association _stockitem { create; with draft; }
+
+  mapping for zcit_ptf_h_it018
+  {
+    PortfolioId         = portfolioid;
+    PortfolioName       = portfolioname;
+    OwnerName           = ownername;
+    BaseCurrency        = basecurrency;
+    TotalValue          = totalvalue;
+    CreatedOn           = createdon;
+    RiskProfile         = riskprofile;
+    LocalCreatedBy      = local_created_by;
+    LocalCreatedAt      = local_created_at;
+    LocalLastChangedBy  = local_last_changed_by;
+    LocalLastChangedAt  = local_last_changed_at;
+  }
+}
+
+define behavior for ZCIT_STK_I_22IT018 alias StockItem
+  implementation in class zbp_stk_i_22it018 unique
+  draft table zcit_ptf_sd_018
+  lock dependent by _portfolio
+  authorization dependent by _portfolio
+  etag master LocalLastChangedAt
+{
+  update;
+  delete;
+
+  field ( readonly : update, mandatory : create ) StockItemNo;
+  field ( readonly ) PortfolioId;
+
+  association _portfolio { with draft; }
+
+  mapping for zcit_ptf_s_it018
+  {
+    PortfolioId         = portfolioid;
+    StockItemNo         = stockitemno;
+    TickerSymbol        = tickersymbol;
+    CompanyName         = companyname;
+    Exchange            = exchange;
+    Sector              = sector;
+    Quantity            = quantity;
+    QuantityUnit        = quantityunit;
+    BuyPrice            = buyprice;
+    CurrentPrice        = currentprice;
+    Currency            = currency;
+    PurchaseDate        = purchasedate;
+    LocalCreatedBy      = local_created_by;
+    LocalCreatedAt      = local_created_at;
+    LocalLastChangedBy  = local_last_changed_by;
+    LocalLastChangedAt  = local_last_changed_at;
+  }
+}
