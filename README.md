@@ -1,7 +1,7 @@
 # 📈 Stock Market Portfolio Tracker
 ### SAP ABAP Cloud · RAP Unmanaged Model
 
-> **Register No:** 22AM039 &nbsp;|&nbsp; **Student:** DEEBAK G R &nbsp;|&nbsp; **Mentor:** Ajayan C &nbsp;|&nbsp; **Package:** `ZMK_RAP_STCK`
+> **Register No:** 22IT018 &nbsp;|&nbsp; **Student:** DEEPAK S &nbsp;|&nbsp; **Mentor:** Ajayan C &nbsp;|&nbsp; **Package:** `ZMK_RAP_STCK`
 
 ---
 
@@ -223,8 +223,8 @@ Phase 7 — Service Layer
 
 | Field | Value |
 |-------|-------|
-| Name | DEEBAK G R |
-| Register No | 22AM039 |
+| Name | DEEPAK S |
+| Register No | 22IT018 |
 | Package | ZMK_RAP_STCK |
 | Mentor | Ajayan C |
 | System | SAP BTP ABAP Cloud |
